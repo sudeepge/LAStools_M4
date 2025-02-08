@@ -235,7 +235,7 @@ static char* findLatestQGISInstallationPath() {
   }
   free(latestVersionName);
   return latestVersionPath;
-#else
+#elif __unix__
   // First check the QGIS_PREFIX_PATH, then the system-wide library directories
   if (qgisPathEnv) {
     std::filesystem::path path(qgisPathEnv);
@@ -295,7 +295,7 @@ static char* findLatestCondaInstallationPath() {
       }
     }
   }
-#else
+#elif __unix__
   // First check the CONDA_PREFIX, then the system-wide library directories
   if (condaPathEnv) {
     std::filesystem::path path(condaPathEnv);
